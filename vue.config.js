@@ -1,26 +1,10 @@
 module.exports = {
-  configureWebpack: {
-    module: {
-      rules: [
-        {
-          test: /\.worker\.js$/,
-          use: {
-            loader: "worker-loader",
-            options: {
-              inline: true
-            }
-          }
-        }
-      ]
-    },
-    // resolve: {
-    //   alias: {
-    //     vue$: "vue/dist/vue.esm.js",
-    //     "@": path.resolve(__dirname, "src/")
-    //   }
-    // },
-    plugins: [
-      // plugin
-    ]
+  chainWebpack: config => {
+    config.module
+      .rule("worker-loader")
+      .test(/\.worker\.js$/i)
+      .use("worker-loader")
+      .loader("worker-loader")
+      .end();
   }
 };
