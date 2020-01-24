@@ -39,6 +39,9 @@
 <script>
 import { Main } from "../common/js/main";
 import { HeavyRendering2D } from "../js/heavyrendering2d";
+// import Worker1 from "worker-loader!./worker";
+// import { Main } from "../common/js/main";
+// import { HeavyRendering2D } from "../js/heavyrendering2d";
 
 export default {
   name: "HelloWorld",
@@ -46,12 +49,14 @@ export default {
     msg: String
   },
   mounted() {
+    // let worker = undefined;
     if (window.Worker) {
       // eslint-disable-next-line
       console.log("=== Worker 使用可能 ===");
       // new Worker(require("./worker.js"));
 
       new Main(HeavyRendering2D);
+      // new Worker1({ name: "Worker Thread" });
     }
 
     // let count = 0;
@@ -59,6 +64,10 @@ export default {
       // eslint-disable-next-line
       // console.log("main thread: " + count);
       // count++;
+      // count++;
+      // if (worker) {
+      //   worker.postMessage(count);
+      // }
     }, 100);
 
     // new Main(HeavyRendering2D);
