@@ -14,7 +14,19 @@ export default {
     msg: String
   },
   mounted() {
-    // eslint-disable-next-line
+    if (window.Worker) {
+      // eslint-disable-next-line
+      console.log("=== Worker 使用可能 ===");
+      new Worker(require("./worker.js"), { name: "Worker Thread" });
+    }
+
+    let count = 0;
+    setInterval(() => {
+      // eslint-disable-next-line
+      console.log("main thread: " + count);
+      count++;
+    }, 100);
+
     // new Main(HeavyRendering2D);
   }
 };
@@ -22,9 +34,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import "../common/css/style.css";
-@import "../common/css/btn.css";
-
 h3 {
   margin: 40px 0 0;
 }
