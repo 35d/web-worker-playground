@@ -1,5 +1,6 @@
 // eslint-disable-next-line
 console.log("=== worker js");
+import { HeavyRendering2D } from "./heavyrendering2d";
 
 /**
  * Workerスレッドで動作する処理です。
@@ -15,10 +16,10 @@ class WorkerMain {
     console.log("=== worker start");
     if ("undefined" === typeof window) {
       // eslint-disable-next-line
-      const HeavyRendering2D = new importScripts(require("./heavyrendering2d.js"));
+      console.log("=== constructor");
+      // console.log(HeavyRendering2D);
       // eslint-disable-next-line
-      console.log(HeavyRendering2D);
-      // eslint-disable-next-line
+      // importScripts("./heavyrendering2d.js");
       this.renderer = new HeavyRendering2D(canvas);
       this.render();
     }

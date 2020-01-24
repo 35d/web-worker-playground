@@ -1,6 +1,6 @@
 // import Stats from 'https://cdnjs.cloudflare.com/ajax/libs/stats.js/r17/Stats.js';
 const dat = require("dat.gui");
-import Worker from "../../js/worker.js";
+import Worker1 from "worker-loader!../../js/worker";
 
 /**
  * メインスレッドで動作する共通処理です。
@@ -88,7 +88,7 @@ export class Main {
 
       // Workerを作成し、OffscreenCanvasを渡す
       // eslint-disable-next-line
-      this.worker = new Worker();
+      this.worker = new Worker1();
 
       // eslint-disable-next-line
       console.log(this.worker);

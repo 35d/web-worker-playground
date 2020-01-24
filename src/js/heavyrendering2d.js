@@ -2,7 +2,7 @@
  * Canvasにレンダリングを行う処理です。
  * メイン/Workerどちらのスレッドからでも使用できるようになっています。
  */
-class HeavyRendering2D {
+export class HeavyRendering2D {
   /**
    * コンストラクタです。
    *
